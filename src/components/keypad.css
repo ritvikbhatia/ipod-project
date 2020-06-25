@@ -13,9 +13,28 @@
 }
 img{
     width: 20%;
-    
 }
 
+
+#menu{
+    position: relative;
+    right:31%;
+    top: 4%;
+}
+span{
+    font-size: 3vh;
+    font-weight: bold;
+}
+#center{
+    position: relative;
+    display: inline-block;
+    width: 35%;
+    height: 35%;
+    border :2px solid black ;
+    top: 10%;
+    border-radius: 50%;
+    
+}
 #next{
     position: relative;
     left:67%;
@@ -30,13 +49,4 @@ img{
     position: relative;
     right:8%;
     top: 73%;
-}
-#menu{
-    position: relative;
-    right:31%;
-    top: 4%;
-}
-span{
-    font-size: 3vh;
-    font-weight: bold;
 }
