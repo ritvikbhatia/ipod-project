@@ -1,0 +1,11 @@
+.Screen{
+    background-color: white;
+    position: relative;
+    left: 28%;
+    top: 10%;
+    height:30%;
+    width: 30%;
+    border: 2px solid black;
+
+
+}
