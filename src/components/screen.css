@@ -1,11 +1,12 @@
 .Screen{
     background-color: white;
     position: relative;
-    left: 28%;
-    top: 10%;
-    height:30%;
-    width: 30%;
+    left: 8%;
+    top: 4.5%;
+    height:38%;
+    width: 82%;
     border: 2px solid black;
+    border-radius: 5%;
 
 
 }
