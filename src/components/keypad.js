@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import './keypad.css'
 function keypad() {
   return (
@@ -10,11 +9,6 @@ function keypad() {
       <img id='play' src='https://img.icons8.com/ios-glyphs/2x/play.png' alt="play"></img>
       <span id='menu'>MENU</span>
       <div id="center"></div>
-     
-
-      
-      
-
     </div>
   );
 }
