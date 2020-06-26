@@ -4,10 +4,10 @@ function icons() {
   return (
     <div className="Icons">
       <div id="title">IPod</div>
-      <div id="">Coverflow</div>
-      <div id="">Music</div>
-      <div id="">Games</div>
-      <div id="">Settings</div>
+      <div id="coverflow">Coverflow</div>
+      <div id="music" className='selected'>Music </div>
+      <div id="games">Games</div>
+      <div id="settings">Settings</div>
     </div>
   );
 }

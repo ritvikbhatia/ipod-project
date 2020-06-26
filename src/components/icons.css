@@ -11,3 +11,6 @@
     font-size: large;
     font-weight: bold;
 }
+.selected{
+    background-color: blue;
+}
