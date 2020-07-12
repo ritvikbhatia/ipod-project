@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 import Screen from "./components/screen";
 import Keypad from "./components/keypad";
+import Music from "./components/music";
+import Settings from "./components/settings";
+import Games from "./components/games";
+import CoverFlow from "./components/coverflow";
 import ZingTouch from "zingtouch";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    showMenu: true,
+    showGames: false,
+    showMusic: false,
+    showSettings: false,
+    showCoverflow: false,
+  };
   componentDidMount() {
     this.rotate();
   }
@@ -67,12 +78,65 @@ class App extends Component {
       }
     });
   };
+  handleClick = () => {
+    // console.log("what the fuck bro?");
+
+    this.setState({
+      showMenu: false,
+      showGames: false,
+      showMusic: false,
+      showSettings: false,
+      showCoverflow: false,
+    });
+    var music = document.getElementById("music");
+    var games = document.getElementById("games");
+    var settings = document.getElementById("settings");
+    var coverflow = document.getElementById("coverflow");
+    if (games.classList.contains("selected")) {
+      this.setState({
+        showGames: true,
+      });
+    }
+    if (music.classList.contains("selected")) {
+      this.setState({
+        showMusic: true,
+      });
+    }
+    if (settings.classList.contains("selected")) {
+      this.setState({
+        showSettings: true,
+      });
+    }
+    if (coverflow.classList.contains("selected")) {
+      this.setState({
+        showCoverflow: true,
+      });
+    }
+    // console.log(this.state);
+  };
+  menuHandler = () => {
+    this.setState({
+      showMenu: false,
+      showGames: false,
+      showMusic: false,
+      showSettings: false,
+      showCoverflow: false,
+      showMenu: true,
+    });
+  };
   render() {
     return (
       <div className="App">
         <div className="ipod">
-          <Screen></Screen>
-          <Keypad></Keypad>
+          {this.state.showMusic && <Music />}
+          {this.state.showMenu && <Screen />}
+          {this.state.showGames && <Games />}
+          {this.state.showSettings && <Settings />}
+          {this.state.showCoverflow && <CoverFlow />}
+          <Keypad
+            handleClick={this.handleClick}
+            menuHandler={this.menuHandler}
+          ></Keypad>
         </div>
       </div>
     );
