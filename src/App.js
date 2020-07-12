@@ -22,11 +22,11 @@ class App extends Component {
     }
   }
 
-  toggleClockwise = () => {
-    var music = document.getElementById("music");
-    var games = document.getElementById("games");
-    var settings = document.getElementById("settings");
-    var coverflow = document.getElementById("coverflow");
+  toggleClockwise = async () => {
+    var music = await document.getElementById("music");
+    var games = await document.getElementById("games");
+    var settings = await document.getElementById("settings");
+    var coverflow = await document.getElementById("coverflow");
     // console.log(this.state.showMenu);
 
     if (this.state.showMenu) {
@@ -66,19 +66,19 @@ class App extends Component {
       }
     }
   };
-  rotate = () => {
+  rotate = async () => {
     var containerElement = document.getElementsByClassName("Keypad");
     var activeRegion = ZingTouch.Region(containerElement[0]);
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
       if (
         event.detail.distanceFromLast > 0 &&
-        event.detail.distanceFromOrigin > 25
+        event.detail.distanceFromOrigin > 15
       ) {
         this.toggleClockwise();
       } else if (
         event.detail.distanceFromLast < 0 &&
-        event.detail.distanceFromOrigin < -25
+        event.detail.distanceFromOrigin < -15
       ) {
         this.toggleAntiClockwise();
       }
