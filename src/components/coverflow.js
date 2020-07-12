@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import "./screen.css";
 export default function Coverflow() {
-  return <div>Coverflow</div>;
+  return <div className="Screen">Coverflow</div>;
 }

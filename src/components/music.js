@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import "./screen.css";
 export default function Music() {
-  return <div>hello darling</div>;
+  return <div className="Screen">hello darling</div>;
 }

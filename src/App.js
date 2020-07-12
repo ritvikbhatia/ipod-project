@@ -17,47 +17,53 @@ class App extends Component {
     showCoverflow: false,
   };
   componentDidMount() {
-    this.rotate();
+    if (this.state.showMenu) {
+      this.rotate();
+    }
   }
 
   toggleClockwise = () => {
-    var p = document.getElementById("music");
     var music = document.getElementById("music");
     var games = document.getElementById("games");
     var settings = document.getElementById("settings");
     var coverflow = document.getElementById("coverflow");
-    if (coverflow.classList.contains("selected")) {
-      coverflow.classList.toggle("selected");
-      music.classList.toggle("selected");
-    } else if (music.classList.contains("selected")) {
-      music.classList.toggle("selected");
-      games.classList.toggle("selected");
-    } else if (games.classList.contains("selected")) {
-      games.classList.toggle("selected");
-      settings.classList.toggle("selected");
-    } else if (settings.classList.contains("selected")) {
-      settings.classList.toggle("selected");
-      coverflow.classList.toggle("selected");
+    // console.log(this.state.showMenu);
+
+    if (this.state.showMenu) {
+      if (coverflow.classList.contains("selected")) {
+        coverflow.classList.toggle("selected");
+        music.classList.toggle("selected");
+      } else if (music.classList.contains("selected")) {
+        music.classList.toggle("selected");
+        games.classList.toggle("selected");
+      } else if (games.classList.contains("selected")) {
+        games.classList.toggle("selected");
+        settings.classList.toggle("selected");
+      } else if (settings.classList.contains("selected")) {
+        settings.classList.toggle("selected");
+        coverflow.classList.toggle("selected");
+      }
     }
   };
   toggleAntiClockwise = () => {
-    var p = document.getElementById("music");
     var music = document.getElementById("music");
     var games = document.getElementById("games");
     var settings = document.getElementById("settings");
     var coverflow = document.getElementById("coverflow");
-    if (coverflow.classList.contains("selected")) {
-      coverflow.classList.toggle("selected");
-      settings.classList.toggle("selected");
-    } else if (music.classList.contains("selected")) {
-      music.classList.toggle("selected");
-      coverflow.classList.toggle("selected");
-    } else if (games.classList.contains("selected")) {
-      games.classList.toggle("selected");
-      music.classList.toggle("selected");
-    } else if (settings.classList.contains("selected")) {
-      settings.classList.toggle("selected");
-      games.classList.toggle("selected");
+    if (this.state.showMenu) {
+      if (coverflow.classList.contains("selected")) {
+        coverflow.classList.toggle("selected");
+        settings.classList.toggle("selected");
+      } else if (music.classList.contains("selected")) {
+        music.classList.toggle("selected");
+        coverflow.classList.toggle("selected");
+      } else if (games.classList.contains("selected")) {
+        games.classList.toggle("selected");
+        music.classList.toggle("selected");
+      } else if (settings.classList.contains("selected")) {
+        settings.classList.toggle("selected");
+        games.classList.toggle("selected");
+      }
     }
   };
   rotate = () => {
@@ -80,43 +86,43 @@ class App extends Component {
   };
   handleClick = () => {
     // console.log("what the fuck bro?");
-
-    this.setState({
-      showMenu: false,
-      showGames: false,
-      showMusic: false,
-      showSettings: false,
-      showCoverflow: false,
-    });
-    var music = document.getElementById("music");
-    var games = document.getElementById("games");
-    var settings = document.getElementById("settings");
-    var coverflow = document.getElementById("coverflow");
-    if (games.classList.contains("selected")) {
+    if (this.state.showMenu) {
       this.setState({
-        showGames: true,
+        showMenu: false,
+        showGames: false,
+        showMusic: false,
+        showSettings: false,
+        showCoverflow: false,
       });
-    }
-    if (music.classList.contains("selected")) {
-      this.setState({
-        showMusic: true,
-      });
-    }
-    if (settings.classList.contains("selected")) {
-      this.setState({
-        showSettings: true,
-      });
-    }
-    if (coverflow.classList.contains("selected")) {
-      this.setState({
-        showCoverflow: true,
-      });
+      var music = document.getElementById("music");
+      var games = document.getElementById("games");
+      var settings = document.getElementById("settings");
+      var coverflow = document.getElementById("coverflow");
+      if (games.classList.contains("selected")) {
+        this.setState({
+          showGames: true,
+        });
+      }
+      if (music.classList.contains("selected")) {
+        this.setState({
+          showMusic: true,
+        });
+      }
+      if (settings.classList.contains("selected")) {
+        this.setState({
+          showSettings: true,
+        });
+      }
+      if (coverflow.classList.contains("selected")) {
+        this.setState({
+          showCoverflow: true,
+        });
+      }
     }
     // console.log(this.state);
   };
   menuHandler = () => {
     this.setState({
-      showMenu: false,
       showGames: false,
       showMusic: false,
       showSettings: false,

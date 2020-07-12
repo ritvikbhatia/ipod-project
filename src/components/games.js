@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import "./screen.css";
 export default function Games() {
-  return <div>Games</div>;
+  return <div className="Screen">Games</div>;
 }
