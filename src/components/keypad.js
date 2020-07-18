@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/keypad.css";
+//component to handle keypad
 function keypad(props) {
   return (
     <div className="Keypad" id="kk">

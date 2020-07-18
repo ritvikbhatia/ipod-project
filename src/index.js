@@ -1,8 +1,10 @@
+//required modules
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/index.css";
 import App from "./App";
 
+//root file to render the app
 ReactDOM.render(
   <React.StrictMode>
     <App />

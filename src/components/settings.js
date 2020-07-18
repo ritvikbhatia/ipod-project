@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react";
 import "../css/screen.css";
+//component to handle settings screen
 export default function Settings() {
   return (
     <div className="Screen">

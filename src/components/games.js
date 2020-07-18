@@ -1,4 +1,5 @@
 // @flow
+//component to handle games screen
 import * as React from "react";
 import "../css/screen.css";
 export default function Games() {

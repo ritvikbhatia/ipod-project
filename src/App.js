@@ -54,12 +54,14 @@ class App extends Component {
       }
     }
   };
+
   toggleAntiClockwise = () => {
     //collecing elements in variable
     var music = document.getElementById("music");
     var games = document.getElementById("games");
     var settings = document.getElementById("settings");
     var coverflow = document.getElementById("coverflow");
+
     // toggling menu anticlockwise
     if (this.state.showMenu) {
       if (coverflow.classList.contains("selected")) {
@@ -77,12 +79,14 @@ class App extends Component {
       }
     }
   };
+
   // function to handle keypad rotation
   rotate = async () => {
     var containerElement = document.getElementsByClassName("Keypad");
     var activeRegion = ZingTouch.Region(containerElement[0]);
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
+
       //comparing angle with previous angle in state
       if (
         event.detail.angle - this.state.angle > 15 ||
@@ -99,6 +103,7 @@ class App extends Component {
       }
     });
   };
+
   //function to manage center button click
   handleClick = () => {
     if (this.state.showMenu) {
@@ -109,6 +114,7 @@ class App extends Component {
         showSettings: false,
         showCoverflow: false,
       });
+
       //collecting elements in variable
       var music = document.getElementById("music");
       var games = document.getElementById("games");
@@ -138,6 +144,7 @@ class App extends Component {
       }
     }
   };
+
   //function to prepare state for menu
   menuHandler = () => {
     this.setState({
@@ -148,10 +155,12 @@ class App extends Component {
       showMenu: true,
     });
   };
+
   render() {
     return (
       <div className="App">
         <div className="ipod">
+          {/* conditional rendering */}
           {this.state.showMusic && <Music />}
           {this.state.showMenu && <Screen />}
           {this.state.showGames && <Games />}

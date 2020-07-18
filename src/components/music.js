@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react";
 import "../css/screen.css";
+//component to handle music screen
 export default function Music() {
   return (
     <div className="Screen">
