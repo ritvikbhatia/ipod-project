@@ -9,9 +9,9 @@ import Coverflow2 from "./Coverflow2";
 class coverflow extends Component {
   //state
   state = {
-    showone: false,
-    showtwo: false,
-    showmen: true,
+    showone: false, //coverflow1
+    showtwo: false, //coverflow2
+    showmen: true, //showmenu
   };
 
   componentDidMount() {
@@ -25,6 +25,7 @@ class coverflow extends Component {
   }
 
   componentWillUnmount() {
+    //setting state back
     this.setState({
       showmen: true,
     });
@@ -55,6 +56,7 @@ class coverflow extends Component {
       }
     });
   };
+
   //function to handle click on menu button
   handleClick = async () => {
     if (this.state.showmen) {
@@ -65,6 +67,7 @@ class coverflow extends Component {
       //collecting elements from DOM
       var coverflow1 = await document.getElementById("coverflow1");
       var coverflow2 = await document.getElementById("coverflow2");
+      //opening selected option on click
       if (coverflow1.classList.contains("selected")) {
         this.setState({
           showone: true,

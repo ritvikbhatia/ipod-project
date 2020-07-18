@@ -1,16 +1,16 @@
-.Icons{
-    width: 50%;
-    height: 98%;
-    background-color: white;
-    border-radius: 5%;
-    border: solid black 2px;
+.Icons {
+  width: 50%;
+  height: 98.5%;
+  background-color: white;
+  border-radius: 5%;
+  border: solid black 2px;
 }
-#title{
-    margin: 2%;
-    margin-top: 5%;
-    font-size: large;
-    font-weight: bold;
+#title {
+  margin: 2%;
+  margin-top: 5%;
+  font-size: large;
+  font-weight: bold;
 }
-.selected{
-    background-color: blue;
+.selected {
+  background-color: blue;
 }

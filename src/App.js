@@ -6,7 +6,7 @@ import Music from "./components/music";
 import Settings from "./components/settings";
 import Games from "./components/games";
 import CoverFlow from "./components/coverflow";
-import ZingTouch from "zingtouch";
+import ZingTouch from "zingtouch"; //used for rotation feature
 import "./css/App.css";
 
 // App class
@@ -20,7 +20,7 @@ class App extends Component {
     showCoverflow: false,
     showCoverflow1: false,
     showCoverflow2: false,
-    angle: 0,
+    angle: 0, //innitial angle
   };
 
   componentDidMount() {
@@ -83,7 +83,7 @@ class App extends Component {
   // function to handle keypad rotation
   rotate = async () => {
     var containerElement = document.getElementsByClassName("Keypad");
-    var activeRegion = ZingTouch.Region(containerElement[0]);
+    var activeRegion = ZingTouch.Region(containerElement[0]); //defining active region
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
 
