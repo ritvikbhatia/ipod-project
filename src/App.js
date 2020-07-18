@@ -17,6 +17,7 @@ class App extends Component {
     showCoverflow: false,
     showCoverflow1: false,
     showCoverflow2: false,
+    angle: 0,
   };
   componentDidMount() {
     if (this.state.showMenu) {
@@ -74,15 +75,18 @@ class App extends Component {
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
       if (
-        event.detail.distanceFromLast > 0 &&
-        event.detail.distanceFromOrigin > 15
+        event.detail.angle - this.state.angle > 15 ||
+        event.detail.angle - this.state.angle < -15
       ) {
-        this.toggleClockwise();
-      } else if (
-        event.detail.distanceFromLast < 0 &&
-        event.detail.distanceFromOrigin < -15
-      ) {
-        this.toggleAntiClockwise();
+        if (event.detail.distanceFromLast > 0) {
+          // console.log(event.detail);
+          this.toggleClockwise();
+        } else if (event.detail.distanceFromLast < 0) {
+          this.toggleAntiClockwise();
+        }
+        this.setState({
+          angle: event.detail.angle,
+        });
       }
     });
   };
