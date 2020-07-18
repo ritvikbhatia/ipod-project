@@ -2,5 +2,13 @@
 import * as React from "react";
 import "./screen.css";
 export default function Music() {
-  return <div className="Screen">hello darling</div>;
+  return (
+    <div className="Screen">
+      <img
+        src="https://i.gifer.com/Yzg5.gif"
+        style={{ width: "100%", height: "100%", borderRadius: "5%" }}
+        alt="music"
+      ></img>
+    </div>
+  );
 }
