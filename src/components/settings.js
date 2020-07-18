@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import "./screen.css";
+import "../css/screen.css";
 export default function Settings() {
   return (
     <div className="Screen">

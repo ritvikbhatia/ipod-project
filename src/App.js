@@ -1,3 +1,4 @@
+//Required Modules aand files
 import React, { Component } from "react";
 import Screen from "./components/screen";
 import Keypad from "./components/keypad";
@@ -6,9 +7,11 @@ import Settings from "./components/settings";
 import Games from "./components/games";
 import CoverFlow from "./components/coverflow";
 import ZingTouch from "zingtouch";
-import "./App.css";
+import "./css/App.css";
 
+// App class
 class App extends Component {
+  // state
   state = {
     showMenu: true,
     showGames: false,
@@ -19,19 +22,22 @@ class App extends Component {
     showCoverflow2: false,
     angle: 0,
   };
+
   componentDidMount() {
+    //calling rotate function when everything is mounted and menu is selected
     if (this.state.showMenu) {
       this.rotate();
     }
   }
 
   toggleClockwise = async () => {
+    //collecting elements in varible
     var music = await document.getElementById("music");
     var games = await document.getElementById("games");
     var settings = await document.getElementById("settings");
     var coverflow = await document.getElementById("coverflow");
-    // console.log(this.state.showMenu);
 
+    // toggling menu items clockwise
     if (this.state.showMenu) {
       if (coverflow.classList.contains("selected")) {
         coverflow.classList.toggle("selected");
@@ -49,10 +55,12 @@ class App extends Component {
     }
   };
   toggleAntiClockwise = () => {
+    //collecing elements in variable
     var music = document.getElementById("music");
     var games = document.getElementById("games");
     var settings = document.getElementById("settings");
     var coverflow = document.getElementById("coverflow");
+    // toggling menu anticlockwise
     if (this.state.showMenu) {
       if (coverflow.classList.contains("selected")) {
         coverflow.classList.toggle("selected");
@@ -69,17 +77,18 @@ class App extends Component {
       }
     }
   };
+  // function to handle keypad rotation
   rotate = async () => {
     var containerElement = document.getElementsByClassName("Keypad");
     var activeRegion = ZingTouch.Region(containerElement[0]);
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
+      //comparing angle with previous angle in state
       if (
         event.detail.angle - this.state.angle > 15 ||
         event.detail.angle - this.state.angle < -15
       ) {
         if (event.detail.distanceFromLast > 0) {
-          // console.log(event.detail);
           this.toggleClockwise();
         } else if (event.detail.distanceFromLast < 0) {
           this.toggleAntiClockwise();
@@ -90,8 +99,8 @@ class App extends Component {
       }
     });
   };
+  //function to manage center button click
   handleClick = () => {
-    // console.log("what the fuck bro?");
     if (this.state.showMenu) {
       this.setState({
         showMenu: false,
@@ -100,10 +109,13 @@ class App extends Component {
         showSettings: false,
         showCoverflow: false,
       });
+      //collecting elements in variable
       var music = document.getElementById("music");
       var games = document.getElementById("games");
       var settings = document.getElementById("settings");
       var coverflow = document.getElementById("coverflow");
+
+      // opening the selected menu item
       if (games.classList.contains("selected")) {
         this.setState({
           showGames: true,
@@ -125,8 +137,8 @@ class App extends Component {
         });
       }
     }
-    // console.log(this.state);
   };
+  //function to prepare state for menu
   menuHandler = () => {
     this.setState({
       showGames: false,

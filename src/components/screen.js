@@ -1,5 +1,5 @@
 import React from "react";
-import "./screen.css";
+import "../css/screen.css";
 import Icons from "./icons";
 function Screen() {
   return (

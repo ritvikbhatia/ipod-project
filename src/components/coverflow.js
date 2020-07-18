@@ -1,5 +1,5 @@
 // @flow
-import "./screen.css";
+import "../css/screen.css";
 import ZingTouch from "zingtouch";
 import React, { Component } from "react";
 import Coverflow1 from "./coverflow1";
