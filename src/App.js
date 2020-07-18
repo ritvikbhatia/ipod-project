@@ -15,6 +15,8 @@ class App extends Component {
     showMusic: false,
     showSettings: false,
     showCoverflow: false,
+    showCoverflow1: false,
+    showCoverflow2: false,
   };
   componentDidMount() {
     if (this.state.showMenu) {
