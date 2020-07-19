@@ -42,13 +42,13 @@ class coverflow extends Component {
     activeRegion.bind(containerElement[0], "rotate", (event) => {
       event.stopPropagation();
       if (
-        event.detail.distanceFromLast > 0 &&
+        event.detail.distanceFromLast > 2 &&
         event.detail.distanceFromOrigin > 15
       ) {
         coverflow1.classList.toggle("selected");
         coverflow2.classList.toggle("selected");
       } else if (
-        event.detail.distanceFromLast < 0 &&
+        event.detail.distanceFromLast < -2 &&
         event.detail.distanceFromOrigin < -15
       ) {
         coverflow1.classList.toggle("selected");

@@ -6,6 +6,7 @@ function icons() {
     <div className="Icons">
       <div id="title">IPod</div>
       <div id="coverflow">Coverflow</div>
+      {/* innitially  selected */}
       <div id="music" className="selected">
         Music
       </div>
