@@ -8,6 +8,7 @@ import Games from "./components/games";
 import CoverFlow from "./components/coverflow";
 import ZingTouch from "zingtouch"; //used for rotation feature
 import "./css/App.css";
+import Switch from "./components/switch";
 
 // App class
 class App extends Component {
@@ -21,11 +22,15 @@ class App extends Component {
     showCoverflow1: false,
     showCoverflow2: false,
     angle: 0, //innitial angle
+    powerON: false, //ipod power switch
   };
 
   componentDidMount() {
     //calling rotate function when everything is mounted and menu is selected
-    if (this.state.showMenu) {
+    this.handlePower();
+  }
+  componentDidUpdate() {
+    if (this.state.showMenu && this.state.powerON) {
       this.rotate();
     }
   }
@@ -156,20 +161,37 @@ class App extends Component {
     });
   };
 
+  //function to handle power ON/OFF
+  handlePower = () => {
+    var power = document.getElementById("check");
+    power.addEventListener("click", () => {
+      if (power.checked) {
+        this.setState({ powerON: true });
+      } else {
+        this.setState({ powerON: false });
+      }
+    });
+  };
+
   render() {
     return (
       <div className="App">
+        <Switch></Switch>
         <div className="ipod">
           {/* conditional rendering */}
-          {this.state.showMusic && <Music />}
-          {this.state.showMenu && <Screen />}
-          {this.state.showGames && <Games />}
-          {this.state.showSettings && <Settings />}
-          {this.state.showCoverflow && <CoverFlow />}
-          <Keypad
-            handleClick={this.handleClick}
-            menuHandler={this.menuHandler}
-          ></Keypad>
+          {this.state.powerON && (
+            <React.Fragment>
+              {this.state.showMusic && <Music />}
+              {this.state.showMenu && <Screen />}
+              {this.state.showGames && <Games />}
+              {this.state.showSettings && <Settings />}
+              {this.state.showCoverflow && <CoverFlow />}
+              <Keypad
+                handleClick={this.handleClick}
+                menuHandler={this.menuHandler}
+              ></Keypad>
+            </React.Fragment>
+          )}
         </div>
       </div>
     );
